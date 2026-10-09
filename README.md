@@ -5,14 +5,16 @@ Página única em HTML/CSS/JS puro, sem build.
 
 ## Publicação (Vercel)
 
-Publicado em produção na Vercel, mas **escondido do Google**: o `vercel.json` manda o cabeçalho
-`X-Robots-Tag: noindex, nofollow`. Quem tem o link consegue abrir, mas o site não aparece nas buscas.
+Publicado em produção na Vercel e **liberado para o Google** (`robots.txt` + `sitemap.xml`):
+https://everton-miranda-festas.vercel.app. Cada commit na `main` vai direto para o ar.
 
-Para liberar para o Google, quando o Everton aprovar:
+Para esconder do Google de novo, volte a pôr no `vercel.json`:
 
-1. Apague o bloco `"headers"` do `vercel.json`.
-2. Adicione `robots.txt` e `sitemap.xml` (igual ao site da Cláudia Cury).
-3. Faça commit. Cada commit na `main` vai direto para o ar.
+```json
+"headers": [
+  { "source": "/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
+]
+```
 
 ## Para confirmar com o Everton
 
